@@ -25,7 +25,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="config.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\QuickBuy.Repositorio\QuickBuy.Repositorio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </TypeScriptCompile>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
