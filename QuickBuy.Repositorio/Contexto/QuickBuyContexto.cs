@@ -5,7 +5,7 @@ using QuickBuy.Dominio.ObjetoDeValor;
 
 namespace QuickBuy.Repositorio.Contexto
 {
-    class QuickBuyContexto : DbContext
+    public class QuickBuyContexto : DbContext
     {
 
         public DbSet<Usuario> Usuarios { get; set; }
