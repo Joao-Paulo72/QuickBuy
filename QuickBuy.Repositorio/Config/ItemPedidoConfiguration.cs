@@ -8,6 +8,15 @@ namespace QuickBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<ItemPedido> builder)
         {
+            builder.HasKey(i => i.Id);
+
+            builder
+                .Property(i => i.ProdutoID)
+                .IsRequired();
+
+            builder
+                .Property(i => i.Quantidade)
+                .IsRequired();
 
         }
     }
