@@ -8,17 +8,17 @@ namespace QuickBuy.Repositorio.Repositorios
     public class BaseRepositorio<TEntity> : IBaseRepositorio<TEntity> where TEntity : class
     {
 
-        private readonly QuickBuyContexto _quickBuyContexto;
+        protected readonly QuickBuyContexto QuickBuyContexto;
 
         public BaseRepositorio(QuickBuyContexto quickBuyContexto)
         {
-            _quickBuyContexto = quickBuyContexto;
+            QuickBuyContexto = quickBuyContexto;
         }
 
 
         public void Adicionar(TEntity entity)
         {
-            _quickBuyContexto.Set<TEntity>().Add(entity);
+            QuickBuyContexto.Set<TEntity>().Add(entity);
         }
 
         public void Atualizar(TEntity entity)
@@ -33,7 +33,7 @@ namespace QuickBuy.Repositorio.Repositorios
 
         public IEnumerable<TEntity> ObterTodos()
         {
-            return _quickBuyContexto.Set<TEntity>().ToList();
+            return QuickBuyContexto.Set<TEntity>().ToList();
         }
 
         public void Remover(TEntity entity)
@@ -43,7 +43,7 @@ namespace QuickBuy.Repositorio.Repositorios
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            QuickBuyContexto.Dispose();
         }
     }
 }
